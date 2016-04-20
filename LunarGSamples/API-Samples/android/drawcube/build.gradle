@@ -35,7 +35,7 @@ model {
     }
 
     android {
-        compileSdkVersion = "android-N"
+        compileSdkVersion = 23
         buildToolsVersion = "23.0.2"
 
         defaultConfig.with {
@@ -63,6 +63,7 @@ model {
         cppFlags.add("-I${file("../../data")}".toString())
         cppFlags.add("-I${file("../../utils")}".toString())
         cppFlags.add("-I${file("../../utils/glm")}".toString())
+        cppFlags.add("-I${file("../../../include")}".toString())
         cppFlags.add("-I${file(vulkanWrapperPath)}".toString())
         cppFlags.add("-I${file("${shadercLibPath}/third_party/spirv-tools/include")}".toString())
         cppFlags.add("-I${file("${shadercLibPath}/third_party/spirv-tools/include/spirv-tools")}".toString())
@@ -121,11 +122,10 @@ model {
         // for detailed abiFilter descriptions, refer to "Supported ABIs" @
         // https://developer.android.com/ndk/guides/abis.html#sa
         create("all") {
-            
             ndk.abiFilters.add("armeabi-v7a")
-            ndk.abiFilters.add("arm64-v8a")
-            ndk.abiFilters.add("x86")
-            ndk.abiFilters.add("x86_64")
+//            ndk.abiFilters.add("arm64-v8a")
+//            ndk.abiFilters.add("x86")
+//            ndk.abiFilters.add("x86_64")
         }
     }
 }
